@@ -7,6 +7,8 @@
       <br />
       <button class="btn btn-primary" @click="direct()">Direct</button>
     </center>
+
+
   </div>
 </template>
 <script>
@@ -19,6 +21,35 @@ export default {
     direct() {
       this.$router.push("/testtwo");
     },
+
+    one() {
+      const n = 1;
+      return n;
+    },
+  },
+
+  beforeCreate() {
+    console.log("before create");
+  },
+
+  created() {
+    console.log(this.one());
+  },
+
+  beforeMount() {
+    console.log("Before Loading");
+  },
+
+  mounted() {
+    console.log("loaded");
+  },
+
+  beforeUpdate() {
+    console.log("before update");
+  },
+
+  updated() {
+    console.log("updated");
   },
 };
 </script>
