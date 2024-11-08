@@ -1,0 +1,17 @@
+.form {
+  .button {
+    .btn-text {
+      text-transform: capitalize;
+      font-size: 20px;
+    }
+  }
+  .main-wrapper {
+    padding-left: 400px;
+    padding-right: 400px;
+
+    @media screen and (max-width: 768px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+}

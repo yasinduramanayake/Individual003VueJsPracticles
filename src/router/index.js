@@ -9,6 +9,11 @@ const routes = [
     // component : import("..pages/index.vue")
     component: import("@/views/TestTwo.vue"),
   },
+  {
+    path: "/sample",
+    // component : import("..pages/index.vue")
+    component: import("@/views/sample.vue"),
+  },
 ];
 
 /**
@@ -24,6 +29,5 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
-
 
 export default router;
