@@ -1,22 +1,20 @@
 <template>
   <div class="form">
+
     <div class="main-wrapper">
-      <v-card elevation="7" class="pl-8 pr-8 pt-6 pb-6" >
-        <h2 class="text-center">Sample Form</h2>
+      <v-card elevation="7" class="pl-8 pr-8 pt-6 pb-6">
+        
+        <h2 class="text-center">{{ title }}</h2>
         <v-form>
           <v-row>
-            <v-col lg="12" cols="12" v-if="form.name === 'Yasindu123'  ">
+            <v-col lg="12" cols="12">
               <label>Name</label>
               <v-text-field
                 variant="outlined"
                 v-model="form.name"
               ></v-text-field>
             </v-col>
-            <v-col
-              lg="12"
-              cols="12"
-              v-if="form.email === 'yasindu123@gmail.com'"
-            >
+            <v-col lg="12" cols="12">
               <label>E-mail</label>
               <v-text-field
                 variant="outlined"
@@ -24,7 +22,7 @@
               ></v-text-field>
             </v-col>
 
-            <v-col lg="12" cols="12" v-if="form.message === 'Hay'">
+            <v-col lg="12" cols="12">
               <label>Message</label>
               <v-textarea
                 variant="outlined"
@@ -33,7 +31,7 @@
             </v-col>
 
             <v-col lg="12" cols="12">
-              <v-btn color="red" block class="button" @click="getData()"
+              <v-btn color="red" block class="button" @click="emitData()"
                 ><span class="btn-text">Submit</span></v-btn
               >
             </v-col>
@@ -41,7 +39,7 @@
         </v-form>
       </v-card>
 
-      <v-dialog max-width="500" v-model="show" persistent>
+      <!-- <v-dialog max-width="500" v-model="show" persistent>
         <v-card class="pa-10">
           <center>
             Name : {{ form.name }}
@@ -55,7 +53,7 @@
             Message : {{ form.message }}
           </center>
         </v-card>
-      </v-dialog>
+      </v-dialog> -->
     </div>
   </div>
 </template>
@@ -71,18 +69,24 @@ export default {
     };
   },
   created() {
-    this.initializeData();
+    this.form = this.formData;
+  },
+
+  props: {
+    title: String,
+    formData: Object,
   },
 
   methods: {
-    initializeData() {},
-    getData() {
-      // this.show = true;
-
-      this.form.name = "Yasindu123";
-      this.form.email = "yasindu123@gmail.com";
-      this.form.message = "Hay";
+    emitData() {
+      this.$emit("emitdata", this.form);
     },
+    // getData() {
+    //   // this.show = true;
+    //   this.form.name = "Yasindu123";
+    //   this.form.email = "yasindu123@gmail.com";
+    //   this.form.message = "Hay";
+    // },
   },
 };
 </script>
